@@ -1,0 +1,245 @@
+// .team-container {
+//   display: grid;
+//   grid-template-columns: repeat(4, 1fr);
+//   grid-gap: 3rem;
+
+//   @include respond(tab-port) {
+//     grid-template-columns: repeat(2, 1fr);
+//   }
+
+//   @include respond(phone) {
+//     grid-template-columns: 1fr;
+//   }
+// }
+
+// .team-card {
+//   display: flex;
+//   flex-direction: column;
+//   background-color: lighten($color-accent-3, 15%);
+//   border-radius: 1rem;
+//   overflow: hidden;
+//   box-shadow: $box-shadow;
+//   transition: 0.2s ease;
+
+//   &:hover {
+//     box-shadow: $box-shadow-dark;
+//   }
+
+//   &__member {
+//     width: 100%;
+//   }
+
+//   &__info {
+//     padding: 2rem 1rem;
+//   }
+// }
+.card {
+  position: relative;
+
+  > .card__front,
+  > .card__back {
+    display: block;
+    transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition-duration: 0.75s;
+    transition-property: transform, opacity;
+  }
+
+  > .card__front {
+    transform: rotateY(0deg);
+  }
+
+  > .card__back {
+    position: absolute;
+    opacity: 0;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    transform: rotateY(-180deg);
+
+    @include respond(phone) {
+      position: relative;
+      opacity: 1;
+      transform: rotateY(0);
+      width: auto;
+      height: auto;
+    }
+  }
+
+  &:hover {
+    > .card__front {
+      transform: rotateY(180deg);
+
+      @include respond(phone) {
+        transform: rotateY(0);
+      }
+    }
+
+    > .card__back {
+      opacity: 1;
+      transform: rotateY(0deg);
+    }
+  }
+}
+
+// custom
+.card {
+  position: relative;
+  text-align: center;
+  width: 100%;
+
+  > .card__front {
+    width: inherit;
+    overflow: hidden;
+    height: auto;
+    position: relative;
+    border-radius: 1rem;
+
+    @include respond(phone) {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  > .card__back {
+    padding: 2rem;
+    background-image: linear-gradient(
+      to right bottom,
+      $color-secondary-1,
+      $color-primary-2
+    );
+    border-radius: 1rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    @include respond(phone) {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+
+    &--1 {
+      background: #272727;
+    }
+
+    &--2 {
+      background: #3d82fc;
+    }
+
+    &--3 {
+      background: #d79828;
+    }
+
+    &--4 {
+      background: #6c748f;
+    }
+
+    &--5 {
+      background: #b32f38;
+    }
+
+    &--6 {
+      background: #2f646a;
+    }
+  }
+
+  &__description {
+    font-size: 2.4rem;
+    color: $color-grey-light;
+    margin-bottom: 1rem;
+  }
+
+  &__member {
+    width: 100%;
+    display: flex;
+  }
+
+  &__heading-main {
+    font-family: $font-display;
+    font-size: 2.5rem;
+    color: $color-grey-light;
+    letter-spacing: 1px;
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    display: block;
+    padding: 0.5rem 1.25rem;
+
+    @include respond(tab-port) {
+      font-size: 2.4rem;
+    }
+
+    @include respond(phone) {
+      font-size: 3rem;
+    }
+
+    &--1 {
+      background: rgba(#272727, 0.85);
+    }
+
+    &--2 {
+      background: rgba(#3d82fc, 0.85);
+    }
+
+    &--3 {
+      background: rgba(#d79828, 0.85);
+    }
+
+    &--4 {
+      background: rgba(#6c748f, 0.85);
+    }
+
+    &--5 {
+      background: rgba(#b32f38, 0.85);
+    }
+
+    &--6 {
+      background: rgba(#2f646a, 0.85);
+    }
+  }
+
+  &__heading {
+    font-family: $font-display;
+    letter-spacing: 1px;
+    color: $color-grey-light;
+    font-size: 6rem;
+    font-weight: 300;
+    margin-bottom: 2rem;
+
+    @include respond(tab-land) {
+      font-size: 4rem;
+    }
+
+    @include respond(tab-port) {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+
+    @include respond(phone) {
+      display: none;
+    }
+  }
+
+  &__social-link {
+    text-decoration: none;
+    font-size: 2.2rem;
+
+    &:not(:last-child) {
+      margin-right: 0.5rem;
+    }
+  }
+
+  &__social-icon {
+    fill: $color-grey-light;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 3px;
+    transition: 0.2s ease;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

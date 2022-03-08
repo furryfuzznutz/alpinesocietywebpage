@@ -1,0 +1,39 @@
+.jumbotron {
+  padding: 6rem 1rem;
+  background-color: $color-accent-2;
+  width: 100%;
+
+  .row {
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    align-items: center;
+
+    justify-content: flex-start;
+
+    @include respond(tab-land) {
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
+  }
+
+  &__title {
+    font-family: $font-display;
+    letter-spacing: 2px;
+    color: $color-grey-light;
+    line-height: 1.2;
+    font-size: 6rem;
+    text-align: center;
+
+    @include respond(tab-land) {
+      margin-bottom: 2rem;
+    }
+
+    @include respond(tab-port) {
+      font-size: 4rem;
+    }
+
+    @include respond(phone) {
+      font-size: 3rem;
+    }
+  }
+}
