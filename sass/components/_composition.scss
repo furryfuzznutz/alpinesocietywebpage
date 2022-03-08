@@ -1,0 +1,40 @@
+.logo {
+  display: flex;
+  position: relative;
+  z-index: 999999999999999999;
+  margin-left: 1.5rem;
+  cursor: pointer;
+  padding: 1rem 0;
+
+  @include respond(tab-port) {
+    padding: 0.5rem 0;
+  }
+
+  &__img {
+    height: 8rem;
+
+    @include respond(tab-port) {
+      height: 6rem;
+    }
+  }
+}
+
+.composition {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__img {
+    width: 100%;
+    border-radius: 1rem;
+
+    @include respond(tab-port) {
+      width: 80%;
+      margin-bottom: 6rem;
+    }
+
+    @include respond(phone) {
+      width: 100%;
+    }
+  }
+}
